@@ -1,0 +1,6 @@
+C Program:
+
+sudo apt-install gcc
+gedit filename.c
+gcc filename.c -o hello
+./hello

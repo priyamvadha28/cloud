@@ -1,0 +1,20 @@
+VMware Installation:
+
+- install VMware workstation 16 pro
+- ISO file
+
+ubuntu website --> download for desktop --> this downloads ISO file (3GB)
+
+Open VMWare Workstation Pro 16
+Choose Typical and click on next
+Installer --> Choose the downloaded ISO
+Create username and password --> you'll be asked for it
+click next 3 times
+click on finish 
+click ok 
+
+Configures and goes into a user 
+click on your username and give your password
+click next
+click done
+remind me later for software update (if asked pop up)
