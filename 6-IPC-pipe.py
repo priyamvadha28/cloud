@@ -46,7 +46,7 @@ def parent_child_communication():
 if __name__ == "__main__":
     parent_child_communication()'''
 
-import multiprocessing
+''''import multiprocessing
 
 def child_process(child_conn):
     # Receive message from the parent
@@ -79,4 +79,37 @@ def parent_child_communication():
     child.join()
 
 if __name__ == "__main__":
-    parent_child_communication()
+    parent_child_communication()''''
+
+import multiprocessing
+
+def child_process(pipe):
+    # Receive message from parent
+    message = pipe.recv()
+    print(f"Child received: {message}")
+    
+    # Respond to parent
+    response = "Hello Parent! I got your message."
+    pipe.send(response)
+
+def parent_process():
+    # Create a pipe
+    parent_conn, child_conn = multiprocessing.Pipe()
+    
+    # Start the child process
+    child = multiprocessing.Process(target=child_process, args=(child_conn,))
+    child.start()
+    
+    # Send message to the child
+    message = "Hello Child! How are you?"
+    parent_conn.send(message)
+    
+    # Receive response from the child
+    response = parent_conn.recv()
+    print(f"Parent received: {response}")
+    
+    # Wait for the child process to finish
+    child.join()
+
+if __name__ == "__main__":
+    parent_process()
